@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {PrimeNGConfig} from 'primeng/api';
+import { LibrosComponent } from './component/libros/libros-list/libros.component';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import {PrimeNGConfig} from 'primeng/api';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit{
-  title = 'condominio-front';
+  title = 'librerias-front';
   layoutMode = 'overlay';
 
   layoutColor = 'light';

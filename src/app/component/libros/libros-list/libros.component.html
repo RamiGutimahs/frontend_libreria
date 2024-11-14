@@ -1,0 +1,77 @@
+<div class="libros-grid">
+  <!-- Lista de libros con detalles, imagen y precio -->
+  <p-card *ngFor="let libro of libros" class="libro-card">
+    <ng-template pTemplate="header">
+      <h2 class="libro-titulo">{{ libro.titulo }}</h2>
+    </ng-template>
+
+    <ng-template pTemplate="content">
+      <img [src]="libro.imagen" alt="{{ libro.titulo }}" class="libro-imagen" 
+           (click)="openImageModal(libro.imagen)" *ngIf="libro.imagen; else noImage" />
+      <ng-template #noImage>
+        <div class="placeholder-image" (click)="openImageModal('')">Sin imagen</div>
+      </ng-template>
+      
+      <div class="libro-detalles">
+        <p><strong>Autor:</strong> {{ libro.autor }}</p>
+        <p><strong>Editorial:</strong> {{ libro.editorial }}</p>
+        <p><strong>Género:</strong> {{ libro.genero }}</p>
+        <p><strong>Precio:</strong> ${{ libro.precioVenta | number:'1.2-2' }}</p>
+        <p><strong>Stock:</strong> {{ libro.stock }}</p>
+        <p><strong>Descripción:</strong> {{ libro.descripcion }}</p>
+      </div>
+    </ng-template>
+  </p-card>
+
+  <!-- Tarjeta para crear un nuevo libro -->
+  <p-card class="create-card" (click)="openNewLibroModal()">
+    <ng-template pTemplate="content">
+      <button pButton icon="pi pi-plus" label="Crear Libro"></button>
+    </ng-template>
+  </p-card>
+
+  <!-- Modal para mostrar la imagen ampliada -->
+  <p-dialog header="Imagen Ampliada" [(visible)]="displayImageModal" modal="true" [closable]="true" [style]="{width: '80%', maxWidth: '100%', height: 'auto'}">
+    <img [src]="selectedImage" alt="Imagen ampliada" class="expanded-image" />
+  </p-dialog>
+
+  <!-- Modal para crear un nuevo libro -->
+  <p-dialog header="Crear Nuevo Libro" [(visible)]="displayModal" modal="true" [closable]="true">
+    <div class="field">
+      <label for="titulo">Título</label>
+      <input id="titulo" type="text" pInputText [(ngModel)]="newLibro.titulo" />
+    </div>
+    <div class="field">
+      <label for="autor">Autor</label>
+      <input id="autor" type="text" pInputText [(ngModel)]="newLibro.autor" />
+    </div>
+    <div class="field">
+      <label for="editorial">Editorial</label>
+      <input id="editorial" type="text" pInputText [(ngModel)]="newLibro.editorial" />
+    </div>
+    <div class="field">
+      <label for="genero">Género</label>
+      <input id="genero" type="text" pInputText [(ngModel)]="newLibro.genero" />
+    </div>
+    <div class="field">
+      <label for="precioVenta">Precio de Venta</label>
+      <input id="precioVenta" type="number" pInputText [(ngModel)]="newLibro.precioVenta" />
+    </div>
+    <div class="field">
+      <label for="stock">Stock</label>
+      <input id="stock" type="number" pInputText [(ngModel)]="newLibro.stock" />
+    </div>
+    <div class="field">
+      <label for="descripcion">Descripción</label>
+      <textarea id="descripcion" rows="3" pInputTextarea [(ngModel)]="newLibro.descripcion"></textarea>
+    </div>
+    <div class="field">
+      <label for="imagen">URL de la Imagen</label>
+      <input id="imagen" type="text" pInputText [(ngModel)]="newLibro.imagen" />
+    </div>
+    <p-footer>
+      <button pButton label="Guardar" icon="pi pi-check" (click)="saveLibro()"></button>
+      <button pButton label="Cancelar" icon="pi pi-times" class="p-button-secondary" (click)="displayModal = false"></button>
+    </p-footer>
+  </p-dialog>
+</div>

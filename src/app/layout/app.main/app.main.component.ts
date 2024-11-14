@@ -6,6 +6,7 @@ import {RouterOutlet} from '@angular/router';
 import {AppMenuComponent} from '../app.menu/app.menu.component';
 import {CommonModule} from '@angular/common';
 import {AppTopbarComponent} from '../app.topbar/app.topbar.component';
+import { LibrosComponent } from '../../component/libros/libros-list/libros.component';
 
 @Component({
   selector: 'app-main',

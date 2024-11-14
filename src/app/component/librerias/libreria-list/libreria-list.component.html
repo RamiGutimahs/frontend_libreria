@@ -1,0 +1,37 @@
+<div class="librerias-grid">
+  <p-card *ngFor="let libreria of librerias" class="libreria-card">
+    <ng-template pTemplate="header">
+      <h2>{{ libreria.nombre }}</h2>
+    </ng-template>
+    <ng-template pTemplate="content">
+      <div class="card-content">
+        <!-- Imagen estática (puedes usar una URL o una imagen local) -->
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/06/03/84/94/libreria-cervantes.jpg" alt="Imagen Librería" class="libreria-image" />
+        <p>{{ libreria.ubicacion }}</p>
+      </div>
+    </ng-template>
+  </p-card>
+
+  <!-- Tarjeta de creación de librería -->
+  <p-card class="create-card" (click)="openNewLibreriaModal()">
+    <ng-template pTemplate="content">
+      <button pButton icon="pi pi-plus" label="Crear Librería"></button>
+    </ng-template>
+  </p-card>
+
+  <!-- Modal para crear nueva librería -->
+  <p-dialog header="Crear Nuevo Librería" [(visible)]="displayModal" modal="true" [closable]="true">
+    <div class="field">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" type="text" pInputText [(ngModel)]="newLibreria.nombre" />
+    </div>
+    <div class="field">
+      <label for="ubicacion">Ubicación</label>
+      <input id="ubicacion" type="text" pInputText [(ngModel)]="newLibreria.ubicacion" />
+    </div>
+    <p-footer>
+      <button pButton label="Guardar" icon="pi pi-check" (click)="saveLibreria()"></button>
+      <button pButton label="Cancelar" icon="pi pi-times" class="p-button-secondary" (click)="displayModal = false"></button>
+    </p-footer>
+  </p-dialog>
+</div>

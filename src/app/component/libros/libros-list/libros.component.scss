@@ -1,0 +1,142 @@
+.libros-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+  min-height: 100vh;
+  padding: 1rem;
+  background-color: #f5f5f5;
+}
+
+.libro-card {
+  width: 300px; /* Ancho de la tarjeta */
+  height: auto; /* Ajusta la altura automáticamente según el contenido */
+  border-radius: 10px; /* Bordes redondeados */
+  background-color: #fff; /* Fondo blanco para las tarjetas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  overflow: hidden; /* Asegura que la imagen no sobresalga */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación para hover */
+  cursor: pointer; /* Indicador de clic */
+}
+
+.libro-card:hover {
+  transform: translateY(-10px); /* Desplazamiento hacia arriba en hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
+}
+
+.libro-titulo {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: #333;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.libro-imagen {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.placeholder-image {
+  width: 100%;
+  height: 200px;
+  background-color: #e0e0e0;
+  text-align: center;
+  line-height: 200px;
+  color: #999;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 14px;
+}
+
+.libro-detalles {
+  text-align: left;
+  font-size: 14px;
+  color: #666;
+}
+
+.libro-detalles p {
+  margin: 5px 0;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.create-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.create-card:hover {
+  transform: translateY(-5px); /* Desplazamiento en hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.create-card button {
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff; /* Azul brillante */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.create-card button:hover {
+  background-color: #0056b3; /* Azul más oscuro al hacer hover */
+}
+
+p-footer {
+  text-align: right;
+}
+/* Modal de imagen */
+.expanded-image {
+  width: 20%;        /* El 20% del ancho del modal */
+  height: 20%;       /* El 20% del alto del modal */
+  display: block;
+  margin: 0 auto;    /* Centra la imagen dentro del modal */
+  object-fit: contain; /* Mantiene la relación de aspecto de la imagen */
+}
+
+/* Asegura que el modal tenga un ancho ajustable */
+.p-dialog {
+  max-width: 30%;    /* El modal ocupará el 80% del ancho de la pantalla */
+  width: 30%;        /* El modal ocupará el 80% del ancho de la pantalla */
+  height: 30%;      /* Altura automática para ajustarse a la imagen */
+  max-height: 30%;   /* El modal no puede ocupar más del 90% de la altura de la ventana */
+}
+
+/* Estilo para la imagen si no existe una imagen del libro */
+.placeholder-image {
+  width: 50%;
+  height: 50px;
+  background-color: #e0e0e00c;
+  text-align: center;
+  line-height: 50px;
+  color: #99999909;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 14px;
+}
